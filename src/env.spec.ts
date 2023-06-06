@@ -17,7 +17,7 @@ describe('env()', () => {
   it('should return a value from the browser', () => {
     Object.defineProperty(global, 'window', {
       value: {
-        __ENV: {
+        __env: {
           NEXT_PUBLIC_FOO: 'foo',
         },
       },
@@ -34,7 +34,7 @@ describe('env()', () => {
   it('should return undefined when variable does not exist in the browser', () => {
     Object.defineProperty(global, 'window', {
       value: {
-        __ENV: {
+        __env: {
           NEXT_PUBLIC_FOO: 'foo',
         },
       },

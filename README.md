@@ -48,14 +48,14 @@ const { configureRuntimeEnv } = require('next-runtime-env/build/configure');
 configureRuntimeEnv();
 ```
 
-When the server starts, this generates an `__ENV.js` file in the `public` folder
+When the server starts, this generates an `__env.js` file in the `public` folder
 containing allow-listed environment variables with a `NEXT_PUBLIC_` prefix.
 
 2. Add the following to the head section of your `pages/_document.js`:
 
 ```tsx
 // pages/_document.tsx
-<script src="/__ENV.js" />
+<script src="/__env.js" />
 ```
 
 This will load the generated file in the browser.
@@ -63,7 +63,7 @@ This will load the generated file in the browser.
 ### Usage 🧑‍💻
 
 In the browser, your variables will now be available at
-`window.__ENV.NEXT_PUBLIC_FOO` and on the server at
+`window.__env.NEXT_PUBLIC_FOO` and on the server at
 `process.env.NEXT_PUBLIC_FOO`. For example:
 
 ```bash
@@ -82,7 +82,7 @@ type Props = {
 export default function SomePage({ bar }: Props) {
   return (
     <div>
-      {window.__ENV.NEXT_PUBLIC_FOO} {bar}
+      {window.__env.NEXT_PUBLIC_FOO} {bar}
     </div>
   );
 }
@@ -193,7 +193,7 @@ makeEnvPublic('FOO');
 // Or you can make multiple env vars public at once.
 makeEnvPublic(['BAR', 'BAZ']);
 
-// This will generate the `__ENV.js` file and include `NEXT_PUBLIC_FOO`.
+// This will generate the `__env.js` file and include `NEXT_PUBLIC_FOO`.
 configureRuntimeEnv();
 ```
 

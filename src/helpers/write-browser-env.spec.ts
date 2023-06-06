@@ -7,7 +7,7 @@ const infoSpy = jest.spyOn(console, 'info');
 
 const base = fs.realpathSync(process.cwd());
 const path = `${base}/public`;
-const file = `${path}/__ENV.js`;
+const file = `${path}/__env.js`;
 const message = `- ${chalk.green(
   `ready`
 )} [next-runtime-env] wrote browser runtime environment variables to '${file}'.`;
@@ -32,7 +32,7 @@ describe('writeBrowserEnv()', () => {
 
     const content = fs.readFileSync(file).toString();
 
-    expect(content).toEqual('window.__ENV = {};');
+    expect(content).toEqual('window.__env = {};');
 
     fs.rmSync(file);
   });
@@ -46,7 +46,7 @@ describe('writeBrowserEnv()', () => {
 
     const content = fs.readFileSync(file).toString();
 
-    expect(content).toEqual('window.__ENV = {"NEXT_PUBLIC_FOO":"foo"};');
+    expect(content).toEqual('window.__env = {"NEXT_PUBLIC_FOO":"foo"};');
 
     fs.rmSync(file);
   });
@@ -63,14 +63,14 @@ describe('writeBrowserEnv()', () => {
     const content = fs.readFileSync(file).toString();
 
     expect(content).toEqual(
-      'window.__ENV = {"NEXT_PUBLIC_FOO":"foo","NEXT_PUBLIC_BAR":"bar","NEXT_PUBLIC_BAZ":"baz"};'
+      'window.__env = {"NEXT_PUBLIC_FOO":"foo","NEXT_PUBLIC_BAR":"bar","NEXT_PUBLIC_BAZ":"baz"};'
     );
 
     fs.rmSync(file);
   });
 
   it('should write to a subdirectory', () => {
-    const fileInSubdirectory = `${path}/subdirectory/__ENV.js`;
+    const fileInSubdirectory = `${path}/subdirectory/__env.js`;
     const messageWithSubdirectory = `- ${chalk.green(
       `ready`
     )} [next-runtime-env] wrote browser runtime environment variables to '${fileInSubdirectory}'.`;
@@ -81,7 +81,7 @@ describe('writeBrowserEnv()', () => {
 
     const content = fs.readFileSync(fileInSubdirectory).toString();
 
-    expect(content).toEqual('window.__ENV = {};');
+    expect(content).toEqual('window.__env = {};');
 
     fs.rmSync(fileInSubdirectory);
   });

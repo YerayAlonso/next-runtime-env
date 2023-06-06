@@ -36,7 +36,7 @@ describe('allEnv()', () => {
   it('should return all values from the browser', () => {
     Object.defineProperty(global, 'window', {
       value: {
-        __ENV: {
+        __env: {
           NEXT_PUBLIC_BAR: 'bar',
           NEXT_PUBLIC_BAZ: 'baz',
         },

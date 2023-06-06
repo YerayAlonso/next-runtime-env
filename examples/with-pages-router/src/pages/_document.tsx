@@ -5,7 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-        <script src="/__ENV.js" />
+        <script src="/__env.js" />
       </Head>
       <body>
         <Main />

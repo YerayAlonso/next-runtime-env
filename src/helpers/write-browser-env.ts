@@ -4,14 +4,14 @@ import path from 'path';
 import * as log from '../utils/log';
 
 /**
- * Writes the environment variables to the public __ENV.js file and make them
- * accessible under `window.__ENV`.
+ * Writes the environment variables to the public __env.js file and make them
+ * accessible under `window.__env`.
  */
 export function writeBrowserEnv(env: NodeJS.ProcessEnv, subdirectory = '') {
   const base = fs.realpathSync(process.cwd());
-  const file = `${base}/public/${subdirectory}__ENV.js`;
+  const file = `${base}/public/${subdirectory}__env.js`;
 
-  const content = `window.__ENV = ${JSON.stringify(env)};`;
+  const content = `window.__env = ${JSON.stringify(env)};`;
 
   const dirname = path.dirname(file);
 

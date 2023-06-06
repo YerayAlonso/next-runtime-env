@@ -7,7 +7,7 @@ import { isBrowser } from './utils/is-browser';
 export function allEnv(): NodeJS.ProcessEnv {
   if (isBrowser()) {
     // eslint-disable-next-line no-underscore-dangle
-    return window.__ENV;
+    return window.__env;
   }
 
   return process.env;
